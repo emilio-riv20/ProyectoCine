@@ -27,9 +27,12 @@ def IniciarSesion(request):
         correo = request.POST.get('correo')
         contraseña = request.POST.get('contraseña')
         comprobar = AñadirUsuario.ComprobarDatos(correo, contraseña)
-        if comprobar == True:
-            messages.success(request, 'Sesión Iniciada')
+        comprobarRol = AñadirUsuario.ComprobarRol(correo)
+        if comprobar == True and comprobarRol =='Cliente':
             return redirect('MenuCliente')
+        
+        elif comprobar == True and comprobarRol == 'Administrador':
+            return redirect ('MenuAdmin')
         else:
             messages.error(request, 'Usuario no Existente')
     return render(request, 'IniciarSesion.html')
