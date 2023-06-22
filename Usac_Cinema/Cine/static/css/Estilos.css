@@ -29,3 +29,58 @@
     font-family: Arial, sans-serif;
     background-color: #b4a1e7;
   }
+  h1{
+    color: #000000;
+    background-color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    width: 300px;
+    height: 30px;
+    margin: 0 auto;
+    display: block;
+  }
+  
+      form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 500px;
+    height: 475px;
+    margin:0 auto;
+    display: block;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  input[type="number"],
+  input[type="text"],
+  input[type="date"],
+  input[type="time"],
+  input[type="password"],
+  input[type="email"],
+  textarea {
+    background-color: #ccc;
+    text-align: center;
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
