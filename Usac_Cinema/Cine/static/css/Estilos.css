@@ -84,3 +84,25 @@
   input[type="submit"]:hover {
     background-color: #45a049;
   }
+
+  .messages {
+    list-style-type: none;
+    margin: 20px auto;
+    padding: 10px;
+    width: 300px;
+    text-align: center;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+  }
+  
+  .messages li {
+    padding: 5px 0;
+  }
+  
+  .messages.success {
+    color: green;
+  }
+  
+  .messages.error {
+    color: red;
+  }

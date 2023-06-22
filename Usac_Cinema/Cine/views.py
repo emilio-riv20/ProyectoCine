@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from Cine.Codigo.Registrar_Usuario import AñadirUsuario
@@ -29,9 +28,10 @@ def IniciarSesion(request):
         contraseña = request.POST.get('contraseña')
         comprobar = AñadirUsuario.ComprobarDatos(correo, contraseña)
         if comprobar == True:
+            messages.success(request, 'Sesión Iniciada')
             return redirect('MenuCliente')
         else:
-            return HttpResponse ("Usuario No Existente")
+            messages.error(request, 'Usuario no Existente')
     return render(request, 'IniciarSesion.html')
         
 def MenuCliente(request):

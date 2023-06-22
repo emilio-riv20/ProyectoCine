@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from Peliculas.Codigo.Listado_Pelis import ListadoPelis
 
 # Create your views here.
@@ -13,6 +14,9 @@ def RegistrarPeliculas(request):
         comprobar = ListadoPelis.ComprobarID(id)
         if comprobar == False:
             ListadoPelis.Agregar(id, nombre, fecha, hora , categoria, link)
+            messages.success(request, 'Película registrada con exito')
+        else:
+            messages.error(request, 'ID existente')
     return render(request, 'RegistrarPeliculas.html')
 
 def Lista_Peliculas(request):

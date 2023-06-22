@@ -50,5 +50,14 @@ ul.messages {
 
         <input type="submit" value="Añadir Pelicula">
     </form>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
 </body>
 </html>
