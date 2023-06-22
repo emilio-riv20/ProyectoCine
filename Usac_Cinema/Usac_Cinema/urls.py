@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from Cine.views import Menu, Lista_Usuarios, RegistrarUsuario, IniciarSesion, MenuCliente
 from Peliculas.views import RegistrarPeliculas
+from Administrador.views import MenuAdmin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +27,6 @@ urlpatterns = [
     path('ListaUsuarios', Lista_Usuarios, name = 'Lista_Usuarios'),
     path('RegistrarPeliculas', RegistrarPeliculas, name = 'RegistrarPeliculas'),
     path('IniciarSesion', IniciarSesion, name = 'IniciarSesion'),
-    path('MenuCliente', MenuCliente, name = 'MenuCliente')
-
+    path('MenuCliente', MenuCliente, name = 'MenuCliente'),
+    path('MenuAdmin', MenuAdmin, name = 'MenuAdmin')
 ]
