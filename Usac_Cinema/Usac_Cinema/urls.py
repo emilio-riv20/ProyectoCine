@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from Cine.views import Menu, Lista_Usuarios, RegistrarUsuario, IniciarSesion, MenuCliente
 from Peliculas.views import RegistrarPeliculas
-from Administrador.views import MenuAdmin
+from Administrador.views import  MenuAdmin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
