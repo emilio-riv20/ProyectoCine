@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ListaUsuarios</title>
+</head>
+<body>
+    <h1>Lista de Usuarios</h1>
+    <tbody>
+        {% for usuario in Nodo %}
+        <tr>
+            <td>{{ usuario.nombre}} </td>
+            <td>{{ usuario.apellido}} </td>
+            <td>{{ usuario.telefono}} </td>
+            <td>{{ usuario.correo}} </td>
+            <td>{{ usuario.rol}} </td>
+        </tr>
+        {% empty %}
+            <li>No hay usuarios registrados.</li>
+        {% endfor %}
+    </tbody>
+</body>
+</html>

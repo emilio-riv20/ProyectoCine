@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iniciar Sesión</title>
+</head>
+<style>
+
+ul.menu {
+          /*Esto es para la configuración de la cinta de opciones*/
+        list-style-type: none;
+        margin: 0%;
+        padding: 0;
+        overflow: hidden;
+        background-color: #403855;
+        border-radius: 10px;
+      }
+  
+      ul.menu li {
+        float: left;
+      }
+  
+      ul.menu li a {
+          /*Esto es para la configuración de letra de la cinta de opciones*/
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+  
+      ul.menu li a:hover {
+          /*Esto es para cambiar el color de las opciones de la cinta al momento de pasar el mouse sobre ellas*/
+        background-color: #8c60aa;
+      }
+
+body {
+      font-family: Arial, sans-serif;
+      background-color: #b4a1e7;
+    }
+
+    h1{
+  color: #000000;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+  width: 300px;
+  height: 30px;
+  margin: 0 auto;
+  display: block;
+}
+
+    form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 500px;
+  height: 175px;
+  margin:0 auto;
+  display: block;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+input[type="email"],
+input[type="password"],
+textarea {
+  background-color: #ccc;
+  text-align: center;
+  width: 95%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+ul.messages {
+  list-style-type: none;
+  margin: 20px auto;
+  padding: 10px;
+  width: 300px;
+  text-align: center;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+}
+
+</style>
+<body>
+
+    <ul class="menu">
+        <!-- Datos de la cinta de opciones -->
+        <li><a href="\">Menú Principal</a></li>
+        <li><a href="RegistrarUsuario">Registar Usuario</a></li>
+      </ul>
+      <br>
+
+    <h1 style="text-align: center;">Iniciar Sesión</h1>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        <label for="correo">Correo:</label>
+        <input type="email" name = "correo" required>
+        <br>
+        <label for="contraseña">Contraseña:</label>
+        <input type="password" name = "contraseña" required>
+        <br>
+
+        <input type="submit" value="Iniciar Sesión">
+    </form>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Crear Pelicula</title>
+    <link rel="stylesheet" href="{% static 'css/Estilos.css' %}">
+</head>
+<style>
+    h1{
+  color: #000000;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  width: 300px;
+  height: 30px;
+  margin: 0 auto;
+  display: block;
+}
+
+    form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 500px;
+  height: 475px;
+  margin:0 auto;
+  display: block;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+input[type="number"],
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea {
+  background-color: #ccc;
+  text-align: center;
+  width: 95%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+ul.messages {
+  list-style-type: none;
+  margin: 20px auto;
+  padding: 10px;
+  width: 300px;
+  text-align: center;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+}
+
+</style>
+<body>
+
+    <ul class="menu">
+        <!-- Datos de la cinta de opciones -->
+        <li><a href="\">Menú Principal</a></li>
+      </ul>
+<br>
+    <h1>Registrar Película</h1>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        <label for="id">ID:</label>
+        <input type="number" name = "id" required>
+        <br>
+        <label for="nombre">Nombre:</label>
+        <input type="text" name = "nombre" required>
+        <br>
+        <label for="fecha">Fecha:</label>
+        <input type="date" name = "fecha" required>
+        <br>
+        <label for="hora">Hora:</label>
+        <input type="time" name="hora" required>
+        <br>
+        <label for="categoria">Categoria:</label>
+        <input type="text" name = "Categoria" required>
+        <br>
+        <label for="link">Link de imagen:</label>
+        <input type="text" name = "Link" required>
+
+        <input type="submit" value="Añadir Pelicula">
+    </form>
+</body>
+</html>
