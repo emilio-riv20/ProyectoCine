@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib import messages
 from Peliculas.Codigo.Listado_Pelis import ListadoPelis
 
@@ -18,6 +18,36 @@ def RegistrarPeliculas(request):
         else:
             messages.error(request, 'ID existente')
     return render(request, 'RegistrarPeliculas.html')
+
+def EliminarPeliculas(request):
+    if request.method == 'POST':
+        id = request.POST.get('id')
+        comprobar = ListadoPelis.ComprobarID(id)
+        
+        if comprobar ==  True:
+            ListadoPelis.Eliminar(id)
+            messages.success(request, 'Película Eliminada')
+        else:
+            messages.error(request, 'Película No Econtrada')
+    return render(request, 'EliminarPeliculas.html')
+
+def ModificarPeliculas(request):
+    if request.method == 'POST':
+        id = request.POST.get('id')
+        comprobar = ListadoPelis.ComprobarID(id)
+
+        if comprobar == True:
+            nuevoID = request.POST.get('nuevoID')
+            nuevoNombre = request.POST.get('nuevoNombre')
+            nuevaFecha = request.POST.get('nuevaFecha')
+            nuevaHora = request.POST.get('nuevaHora')
+            nuevaCategoria = request.POST.get('nuevaCategoria')
+            nuevoLink = request.POST.get('nuevoLink')
+            ListadoPelis.Modificar(id, nuevoID, nuevoNombre, nuevaFecha, nuevaHora, nuevaCategoria, nuevoLink)
+            messages.success(request, 'Película Modificada')
+        else:
+            messages.error(request, 'Película No Encontrada')
+    return render(request, 'ModificarPeliculas.html')
 
 def Lista_Peliculas(request):
     Nodo = ListadoPelis
