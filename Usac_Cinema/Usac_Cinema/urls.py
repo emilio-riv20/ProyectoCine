@@ -29,5 +29,6 @@ urlpatterns = [
     path('IniciarSesion', IniciarSesion, name = 'IniciarSesion'),
     path('Menu/Cliente/', MenuCliente, name = 'MenuCliente'),
     path('MenuAdmin/', MenuAdmin, name = 'MenuAdmin'),
-    path('MenuAdmin/EliminarPeliculas', EliminarPeliculas, name='EliminarPeliculas')
+    path('MenuAdmin/EliminarPeliculas', EliminarPeliculas, name='EliminarPeliculas'),
+    path('MenuAdmin/ModificarPeliculas', ModificarPeliculas, name = 'ModificarPeliculas') 
 ]
