@@ -1,9 +1,22 @@
 from Peliculas.Codigo.NodoPelis import Informacion
 import xml.etree.ElementTree as ET 
+
 class Listado():
 
     def __init__(self):
         self.cabeza = None
+
+    def __iter__(self):
+        actual = self.cabeza
+
+        if self.cabeza is None:
+            return iter([])
+
+        while True:
+            yield 
+            actual = actual.siguiente
+            if actual == self.cabeza:
+                break
 
     def Agregar(self, ID, nombre, fecha, hora, categoria, link):
         pelicula = Informacion(ID, nombre, fecha, hora, categoria, link)
@@ -91,7 +104,7 @@ class Listado():
                     previo.siguiente = actual.siguiente
                     break
 
-    def Modificar(self, ID, nuevoID, nuevoNombre, nuevaFecha, nuevaHora, nuevCategoria):
+    def Modificar(self, ID, nuevoID, nuevoNombre, nuevaFecha, nuevaHora, nuevCategoria, nuevoLink):
         actual = self.cabeza
         while True:
             if actual.ID == ID:
@@ -100,6 +113,7 @@ class Listado():
                 actual.fecha = nuevaFecha
                 actual.hora = nuevaHora
                 actual.categoria = nuevCategoria
+                actual.link = nuevoLink
                 break
             actual = actual.siguiente
             if actual == self.cabeza:

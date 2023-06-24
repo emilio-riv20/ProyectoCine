@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Listado Películas</title>
+    <link rel="stylesheet" href="{% static 'css/Estilos.css' %}">
+</head>
+<body>
+    <h1>Lista de Películas</h1>
+    <tbody>
+        {% for peliculas in NodoPelis %}
+        <tr>
+            <p>{{ peliculas}} </p>
+        </tr>
+        {% empty %}
+            <li>No hay Películas registradas.</li>
+        {% endfor %}
+    </tbody>
+</body>
+</html>

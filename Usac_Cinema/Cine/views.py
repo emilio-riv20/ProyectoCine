@@ -2,6 +2,8 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from Cine.Codigo.Registrar_Usuario import AñadirUsuario
 
+AñadirUsuario.Agregar('Emilio', 'Rivera', '58725886', 'lemilioriveray@gmail.com', '123456', 'Administrador')
+
 # Create your views here.
 def Menu(request):
     return render(request, 'Menu.html')
@@ -40,7 +42,5 @@ def IniciarSesion(request):
 def MenuCliente(request):
     return render(request, 'MenuCliente.html')
 
-def Lista_Usuarios(request):
-    Nodo = AñadirUsuario
-    return render(request, 'MostrarUsuarios.html', {'Nodo': Nodo})
+
 

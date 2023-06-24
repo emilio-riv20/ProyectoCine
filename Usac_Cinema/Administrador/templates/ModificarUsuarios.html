@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <title>Modificar Usuario</title>
+        <link rel="stylesheet" href="{% static 'css/Estilos.css' %}">
+    </head>
+    <style>
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 500px;
+    height: 460px;
+    margin:0 auto;
+    display: block;
+  }
+    </style>
+    <body>
+        <ul class="menu">
+            <!-- Datos de la cinta de opciones -->
+            <li><a href="/MenuAdmin">Volver</a></li>
+          </ul>
+          <br>
+          <h1>Modificar Usuario</h1>
+          <br>
+          <form method="post">
+        {% csrf_token %}
+            <label for="correo">Correo de usuario a Modificar:</label>
+            <input type="email" name = "correo" required>
+            <label for="nuevoNombre">Nuevo Nombre:</label>
+            <input type="text" name = "nuevoNombre" required>
+            <br>
+            <label for="nuevoApellido">Nuevo Apellido:</label>
+            <input type="text" name = "nuevoApellido" required>
+            <br>
+            <label for="nuevoTelefono">Nuevo Telefono:</label>
+            <input type="number" name = "nuevoTelefono" required>
+            <br>
+            <label for="nuevoCorreo">Nuevo Correo:</label>
+            <input type="email" name = "nuevoCorreo" required>
+            <br>
+            <label for="nuevaContraseña">Nueva Contraseña:</label>
+            <input type="password" name = "nuevaContraseña" required>
+            <br>
+            <label for="nuevoRol">Nuevo Rol:</label>
+            <br>
+            <label for="nuevoRol">Nuevo Rol:</label>
+            <input type="text" name = "nuevoRol" required>
+            <br>
+            <input type="submit" value="Modificar Usuario">
+        </form>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    </body>
+</html>

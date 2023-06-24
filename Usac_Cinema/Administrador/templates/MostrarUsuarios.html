@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+    {% load static %}
     <title>ListaUsuarios</title>
+    <link rel="stylesheet" href="{% static 'css/Estilos.css' %}">
 </head>
 <body>
+
+    <ul class="menu">
+        <!-- Datos de la cinta de opciones -->
+        <li><a href="/MenuAdmin">Volver</a></li>
+      </ul>
+    <br>
     <h1>Lista de Usuarios</h1>
     <tbody>
         {% for usuario in Nodo %}
@@ -12,6 +20,7 @@
             <td>{{ usuario.apellido}} </td>
             <td>{{ usuario.telefono}} </td>
             <td>{{ usuario.correo}} </td>
+            <td>{{ usuario.contraseña}} </td>
             <td>{{ usuario.rol}} </td>
         </tr>
         {% empty %}

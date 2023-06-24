@@ -6,13 +6,20 @@
         <link rel="stylesheet" href="{% static 'css/EstilosAdmin.css' %}">
     </head>
 <body>
+
+    <ul class="menu">
+        <!-- Datos de la cinta de opciones -->
+        <li><a href="/">Cerrar Sesión</a></li>
+      </ul>
+<br>
+
 <h1>Administración</h1>
 
 <h3>Gestionar Usuarios</h3>
-<button class = "boton" onclick="window.location.href='RegistrarUsuario'">Añadir</button> <button class = "boton">Eliminar</button> <button class = "boton">Modificar</button> <button class = "boton">Mostrar</button>
+<button class = "boton" onclick="window.location.href='RegistrarUsuarios'">Añadir</button> <button class = "boton" onclick="window.location.href='EliminarUsuarios'">Eliminar</button> <button class = "boton" onclick="window.location.href='ModificarUsuarios'">Modificar</button> <button class = "boton" onclick="window.location.href='MostrarUsuarios'">Mostrar</button>
 <br>
 <h3>Gestionar Películas</h3>
-<button class = "boton" onclick="window.location.href='RegistrarPeliculas'">Añadir</button> <button class = "boton">Eliminar</button> <button class = "boton">Modificar</button> <button class = "boton">Mostrar</button>
+<button class = "boton" onclick="window.location.href='RegistrarPeliculas'">Añadir</button> <button class = "boton" onclick="window.location.href='EliminarPeliculas'">Eliminar</button> <button class = "boton" onclick="window.location.href='ModificarPeliculas'">Modificar</button> <button class = "boton" onclick="window.location.href='Listado'">Mostrar</button>
 <br>
 <h3>Gestionar Salas</h3>
 <button class = "boton" onclick="window.location.href='RegistrarSalas'">Añadir</button> <button class = "boton">Eliminar</button> <button class = "boton">Modificar</button> <button class = "boton">Mostrar</button>
@@ -21,8 +28,4 @@
 <button class = "boton" onclick="window.location.href='RegistrarSalas'">Añadir</button> <button class = "boton">Eliminar</button> <button class = "boton">Modificar</button> <button class = "boton">Mostrar</button>
 <br>
 </body>
-
-
-
-
 </html>
