@@ -19,6 +19,7 @@ from django.urls import path
 from Cine.views import Menu, RegistrarUsuario, IniciarSesion, MenuCliente
 from Peliculas.views import RegistrarPeliculas, EliminarPeliculas, ModificarPeliculas, ListaPeliculas
 from Administrador.views import  MenuAdmin, RegistrarUsuarios, EliminarUsuarios, ModificarUsuarios, Lista_Usuarios
+from Salas.views import RegistrarSalas, EliminarSalas, MostrarSalas, ModificarSalas
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,5 +37,11 @@ urlpatterns = [
     path('MenuAdmin/RegistrarUsuarios', RegistrarUsuarios, name = 'RegistrarUsuarios'),
     path('MenuAdmin/EliminarUsuarios', EliminarUsuarios, name = 'EliminarUsuarios'),
     path('MenuAdmin/ModificarUsuarios', ModificarUsuarios, name = 'ModificarUsuarios'),
-    path('MenuAdmin/MostrarUsuarios', Lista_Usuarios, name = 'Lista_Usuarios') 
+    path('MenuAdmin/MostrarUsuarios', Lista_Usuarios, name = 'Lista_Usuarios'),
+
+    path('MenuAdmin/RegistrarSalas', RegistrarSalas, name = 'RegistrarSalas'),
+    path('MenuAdmin/EliminarSalas', EliminarSalas, name = 'EliminarSalas'),
+    path('MenuAdmin/ModificarSalas', ModificarSalas, name = 'ModificarSalas'),
+    path('MenuAdmin/MostrarSalas', MostrarSalas, name = 'MostrarSalas')
+
 ]

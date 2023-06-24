@@ -12,8 +12,8 @@ class Listado():
         if self.cabeza is None:
             return iter([])
 
-        while True:
-            yield 
+        while actual:
+            yield actual 
             actual = actual.siguiente
             if actual == self.cabeza:
                 break

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Lista de Salas</title>
+    <link rel="stylesheet" href="{% static 'css/Estilos.css' %}">
+</head>
+<style>
+    table {
+
+      width: 25%;
+      border-collapse: collapse;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    th, td {
+      padding: 7px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      border-left: 1px;
+      border-right: 1px;
+      background-color: #ffffff;
+    }
+    
+    th {
+      text-align: center;
+      background-color: #f2f2f2;
+    }
+    
+  </style>
+<body>
+    <ul class="menu">
+        <li><a href="/MenuAdmin">Volver</a></li>
+    </ul>
+    <br>
+    <h1>Lista de Salas</h1>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Número de Sala</th>
+                <th>Número de Asientos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for salas in Nodo %}
+            <tr>
+    
+                <td>{{ salas.N_sala }}</td>
+                <td>{{ salas.N_asiento }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

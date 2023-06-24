@@ -5,12 +5,55 @@
     <title>Listado Películas</title>
     <link rel="stylesheet" href="{% static 'css/Estilos.css' %}">
 </head>
+<style>
+.imagen {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+ .imagen img {
+    width: 200px;
+    height: 300px;
+    margin: 10px;
+    border-radius: 10px;
+  }
+.texto{
+    margin-top: 50px;
+}
+h4{
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+}
+</style>
 <body>
     <h1>Lista de Películas</h1>
+
     <tbody>
         {% for peliculas in NodoPelis %}
         <tr>
-            <p>{{ peliculas}} </p>
+            <div class="imagen">
+                <img src="{{ peliculas.link }}" alt="Imagen">
+                <div class="texto">
+                    <h4>ID: {{ peliculas.ID }}
+                        <br>
+                        <br>
+                        Nombre: {{ peliculas.nombre }}
+                        <br>
+                        <br>
+                        Fecha de Función: {{ peliculas.fecha }}
+                        <br>
+                        <br>
+                        Hora de Función: {{ peliculas.hora }}
+                        <br>
+                        <br>
+                        Categoría: {{ peliculas.categoria }}
+                    </h4>
+                </div>
+
+            </div>
+            
         </tr>
         {% empty %}
             <li>No hay Películas registradas.</li>

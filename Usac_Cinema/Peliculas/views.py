@@ -50,5 +50,5 @@ def ModificarPeliculas(request):
     return render(request, 'ModificarPeliculas.html')
 
 def ListaPeliculas(request):
-    NodoPelis = ListadoPelis
-    return render(request, 'ListaPeliculas.html', {'NodoPelis': NodoPelis})
+    ListadoPelis
+    return render(request, 'ListaPeliculas.html', {'NodoPelis': ListadoPelis})
