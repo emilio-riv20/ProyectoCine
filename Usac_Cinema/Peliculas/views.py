@@ -49,6 +49,6 @@ def ModificarPeliculas(request):
             messages.error(request, 'Película No Encontrada')
     return render(request, 'ModificarPeliculas.html')
 
-def Lista_Peliculas(request):
-    Nodo = ListadoPelis
-    return render(request, 'MostrarPeliculas.html', {'Nodo': Nodo})
+def ListaPeliculas(request):
+    NodoPelis = ListadoPelis
+    return render(request, 'ListaPeliculas.html', {'NodoPelis': NodoPelis})

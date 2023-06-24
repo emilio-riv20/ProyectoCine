@@ -16,19 +16,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Cine.views import Menu, Lista_Usuarios, RegistrarUsuario, IniciarSesion, MenuCliente
-from Peliculas.views import RegistrarPeliculas, EliminarPeliculas, ModificarPeliculas, Lista_Peliculas
-from Administrador.views import  MenuAdmin
+from Cine.views import Menu, RegistrarUsuario, IniciarSesion, MenuCliente
+from Peliculas.views import RegistrarPeliculas, EliminarPeliculas, ModificarPeliculas, ListaPeliculas
+from Administrador.views import  MenuAdmin, RegistrarUsuarios, EliminarUsuarios, ModificarUsuarios, Lista_Usuarios
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Menu, name = 'Menu'),
     path('RegistrarUsuario', RegistrarUsuario, name= 'RegistrarUsuario'),
-    path('ListaUsuarios', Lista_Usuarios, name = 'Lista_Usuarios'),
     path('MenuAdmin/RegistrarPeliculas', RegistrarPeliculas, name = 'RegistrarPeliculas'),
     path('IniciarSesion', IniciarSesion, name = 'IniciarSesion'),
     path('Menu/Cliente/', MenuCliente, name = 'MenuCliente'),
+    
     path('MenuAdmin/', MenuAdmin, name = 'MenuAdmin'),
     path('MenuAdmin/EliminarPeliculas', EliminarPeliculas, name='EliminarPeliculas'),
-    path('MenuAdmin/ModificarPeliculas', ModificarPeliculas, name = 'ModificarPeliculas') 
+    path('MenuAdmin/ModificarPeliculas', ModificarPeliculas, name = 'ModificarPeliculas'),
+    path('MenuAdmin/Listado', ListaPeliculas, name = 'ListaPeliculas'),
+
+    path('MenuAdmin/RegistrarUsuarios', RegistrarUsuarios, name = 'RegistrarUsuarios'),
+    path('MenuAdmin/EliminarUsuarios', EliminarUsuarios, name = 'EliminarUsuarios'),
+    path('MenuAdmin/ModificarUsuarios', ModificarUsuarios, name = 'ModificarUsuarios'),
+    path('MenuAdmin/MostrarUsuarios', Lista_Usuarios, name = 'Lista_Usuarios') 
 ]

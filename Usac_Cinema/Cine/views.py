@@ -42,7 +42,5 @@ def IniciarSesion(request):
 def MenuCliente(request):
     return render(request, 'MenuCliente.html')
 
-def Lista_Usuarios(request):
-    Nodo = AñadirUsuario
-    return render(request, 'MostrarUsuarios.html', {'Nodo': Nodo})
+
 

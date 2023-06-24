@@ -2,7 +2,7 @@
 <html>
     <head>
         {% load static %}
-        <title>Modificar Películas</title>
+        <title>Modificar Usuario</title>
         <link rel="stylesheet" href="{% static 'css/Estilos.css' %}">
     </head>
     <style>
@@ -11,7 +11,7 @@ form {
     padding: 20px;
     border-radius: 10px;
     width: 500px;
-    height: 550px;
+    height: 460px;
     margin:0 auto;
     display: block;
   }
@@ -22,31 +22,33 @@ form {
             <li><a href="/MenuAdmin">Volver</a></li>
           </ul>
           <br>
-          <h1>Modificar Películas</h1>
+          <h1>Modificar Usuario</h1>
           <br>
           <form method="post">
         {% csrf_token %}
-            <label for="id">ID de Película a Modificar:</label>
-            <input type="number" name = "id" required>
-            <label for="nuevoID">Nuevo ID:</label>
-            <input type="number" name = "nuevoID" required>
-            <br>
+            <label for="correo">Correo de usuario a Modificar:</label>
+            <input type="email" name = "correo" required>
             <label for="nuevoNombre">Nuevo Nombre:</label>
             <input type="text" name = "nuevoNombre" required>
             <br>
-            <label for="nuevaFecha">Nuevo Fecha:</label>
-            <input type="date" name = "nuevaFecha" required>
+            <label for="nuevoApellido">Nuevo Apellido:</label>
+            <input type="text" name = "nuevoApellido" required>
             <br>
-            <label for="nuevaHora">Nueva Hora:</label>
-            <input type="time" name = "nuevaHora" required>
+            <label for="nuevoTelefono">Nuevo Telefono:</label>
+            <input type="number" name = "nuevoTelefono" required>
             <br>
-            <label for="nuevaCategoria">Nueva Categoría:</label>
-            <input type="text" name = "nuevaCategoria" required>
+            <label for="nuevoCorreo">Nuevo Correo:</label>
+            <input type="email" name = "nuevoCorreo" required>
             <br>
-            <label for="nuevoLink">Nuevo Link:</label>
-            <input type="text" name = "nuevoLink" required>
+            <label for="nuevaContraseña">Nueva Contraseña:</label>
+            <input type="password" name = "nuevaContraseña" required>
             <br>
-            <input type="submit" value="Modificar Pelicula">
+            <label for="nuevoRol">Nuevo Rol:</label>
+            <br>
+            <label for="nuevoRol">Nuevo Rol:</label>
+            <input type="text" name = "nuevoRol" required>
+            <br>
+            <input type="submit" value="Modificar Usuario">
         </form>
 
         {% if messages %}
