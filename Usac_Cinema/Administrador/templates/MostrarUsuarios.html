@@ -5,6 +5,57 @@
     <title>ListaUsuarios</title>
     <link rel="stylesheet" href="{% static 'css/Estilos.css' %}">
 </head>
+<style>
+    table {
+
+      width: 25%;
+      border-collapse: collapse;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    th, td {
+      padding: 7px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      border-left: 1px;
+      border-right: 1px;
+      background-color: #ffffff;
+    }
+    
+    th {
+      text-align: center;
+      background-color: #f2f2f2;
+    }
+
+  button{
+    background-color: #ffffff;
+  }
+
+  form {
+    background-color: #b4a1e7;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+    margin:0 auto;
+    display: block;
+  }
+
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+    
+  </style>
 <body>
 
     <ul class="menu">
@@ -13,19 +64,33 @@
       </ul>
     <br>
     <h1>Lista de Usuarios</h1>
-    <tbody>
-        {% for usuario in Nodo %}
-        <tr>
-            <td>{{ usuario.nombre}} </td>
-            <td>{{ usuario.apellido}} </td>
-            <td>{{ usuario.telefono}} </td>
-            <td>{{ usuario.correo}} </td>
-            <td>{{ usuario.contraseña}} </td>
-            <td>{{ usuario.rol}} </td>
-        </tr>
-        {% empty %}
-            <li>No hay usuarios registrados.</li>
-        {% endfor %}
-    </tbody>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Teléfono</th>
+                <th>Correo</th>
+                <th>Rol</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in Nodo %}
+            <tr>
+                <td>{{ usuario.nombre}} </td>
+                <td>{{ usuario.apellido}} </td>
+                <td>{{ usuario.telefono}} </td>
+                <td>{{ usuario.correo}} </td>
+                <td>{{ usuario.rol}} </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form method="POST" action="{% url 'Cargar_xml' %}">
+      {% csrf_token %}
+      <button type="submit">Cargar XML</button>
+  </form>
+
 </body>
 </html>

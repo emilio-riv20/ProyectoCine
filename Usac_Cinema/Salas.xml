@@ -1,0 +1,16 @@
+<salas>
+<sala>
+<numero>1</numero>
+<asientos>100</asientos>
+</sala>
+
+<sala>
+<numero>2</numero>
+<asientos>80</asientos>
+</sala>
+
+<sala>
+<numero>3</numero>
+<asientos>120</asientos>
+</sala>
+</salas>

@@ -119,28 +119,24 @@ class Listado():
             if actual == self.cabeza:
                 break
 
-    def guardar_en_xml(self, Nombre):
-        root = ET.Element("Peliculas")
-        actual = self.cabeza
-        while True:
-            pelicula = ET.SubElement(root, "Pelicula")
-            ID = ET.SubElement(pelicula, "ID")
-            nombre = ET.SubElement(pelicula, "Nombre") 
-            fecha = ET.SubElement(pelicula, "Fecha")
-            hora = ET.SubElement(pelicula, "Hora")
-            categoria = ET.SubElement(pelicula, "Categoria")
-            ID.text = actual.ID
-            nombre.text = actual.nombre
-            fecha.text = actual.fecha
-            hora.text = actual.hora
-            categoria.text = actual.categoria
-            actual = actual.siguiente
-            ET.SubElement(root, "\n")
+    def Cargar_xmlP(self, operacion):
+        
+        tree = ET.parse('Peliculas.xml')
+        root = tree.getroot()
 
-            if actual == self.cabeza:
-                break
-
-        arbol = ET.ElementTree(root)
-        arbol.write(Nombre)
+        for indice, pelicula in enumerate(root.findall('pelicula')):
+            id = pelicula.find('id').text
+            nombre = pelicula.find('nombre').text
+            fecha = pelicula.find('fecha').text
+            hora = pelicula.find('hora').text
+            categoria = pelicula.find('categoria').text
+            link = pelicula.find('link').text
+            
+            if operacion == 1:
+                comprobar = self.ComprobarID(id)
+                if comprobar == False:
+                    self.Agregar(id, nombre, fecha, hora, categoria, link)
+                else:
+                    print("Fallo")
 
 ListadoPelis = Listado()

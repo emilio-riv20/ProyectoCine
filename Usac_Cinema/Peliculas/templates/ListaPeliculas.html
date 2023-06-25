@@ -26,10 +26,37 @@ h4{
     border-radius: 10px;
     padding: 10px;
 }
+
+form {
+    background-color: #b4a1e7;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+    margin:0 auto;
+    display: block;
+  }
+
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
 </style>
 <body>
+    <ul class="menu">
+        <!-- Datos de la cinta de opciones -->
+        <li><a href="/MenuAdmin">Volver</a></li>
+      </ul>
+      <br>
     <h1>Lista de Películas</h1>
-
     <tbody>
         {% for peliculas in NodoPelis %}
         <tr>
@@ -51,13 +78,13 @@ h4{
                         Categoría: {{ peliculas.categoria }}
                     </h4>
                 </div>
-
             </div>
-            
         </tr>
-        {% empty %}
-            <li>No hay Películas registradas.</li>
         {% endfor %}
     </tbody>
+    <form method="POST" action="{% url 'Cargar_xmlP' %}">
+        {% csrf_token %}
+        <button type="submit">Cargar XML</button>
+    </form>
 </body>
 </html>

@@ -27,6 +27,29 @@
       text-align: center;
       background-color: #f2f2f2;
     }
+
+    form {
+    background-color: #b4a1e7;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+    margin:0 auto;
+    display: block;
+  }
+
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
     
   </style>
 <body>
@@ -53,6 +76,11 @@
             {% endfor %}
         </tbody>
     </table>
+
+    <form method="POST" action="{% url 'Cargar_xmlS' %}">
+        {% csrf_token %}
+        <button type="submit">Cargar XML</button>
+    </form>
 
 </body>
 </html>

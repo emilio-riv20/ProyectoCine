@@ -73,22 +73,20 @@ class Salas:
             actual = actual.siguiente
         print("Sala no encontrada")
 
-    def GuardarXML(self, Nombre):
-        root = ET.Element("Salas")
-        actual = self.cabeza
-        while actual:
-            pelicula = ET.SubElement(root, "Salas")
-            N_sala = ET.SubElement(pelicula, "Numero")
-            N_asientos = ET.SubElement(pelicula, "Asientos") 
-            N_sala.text = actual.N_sala
-            N_asientos.text = actual.N_asiento
-            actual = actual.siguiente
-            ET.SubElement(root, "\n")
+    def Cargar_xmlS(self, operacion):
+        
+        tree = ET.parse('Salas.xml')
+        root = tree.getroot()
 
-            if actual == self.cabeza:
-                break
-
-        arbol = ET.ElementTree(root)
-        arbol.write(Nombre)
+        for indice, sala in enumerate(root.findall('sala')):
+            numero = sala.find('numero').text
+            asientos = sala.find('asientos').text
+            
+            if operacion == 1:
+                comprobar = self.Comprobar(numero)
+                if comprobar == False:
+                    self.agregar(numero, asientos)
+                else:
+                    print("Fallo")
 
 ListaSalas = Salas()

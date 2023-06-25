@@ -100,28 +100,24 @@ class ListaUsuarios:
             return
         anterior.siguiente = actual.siguiente
 
-    def GuardarXML(self, Nombre_Archivo):
-        root = ET.Element("Usuaios")
-        actual = self.cabeza
-        while actual is not None:
-            usuario = ET.SubElement(root, "Usuarios")
-            nombre = ET.SubElement(usuario, 'nombre')
-            apellido = ET.SubElement(usuario, 'apellido')
-            telefono = ET.SubElement(usuario, 'telefono')
-            correo = ET.SubElement(usuario, 'correo')
-            contraseña = ET.SubElement(usuario, 'contrasena')
-            rol = ET.SubElement(usuario, 'rol')
+    def CargarXML(self, operacion):
+        
+        tree = ET.parse('Usuarios.xml')
+        root = tree.getroot()
 
-            nombre.text = actual.nombre
-            apellido.text = actual.apellido
-            telefono.text = actual.telefono
-            correo.text = actual.correo
-            contraseña.text = actual.contraseña
-            rol.text = actual.rol
-            actual = actual.siguiente
-            ET.SubElement(root, "\n")
-
-        tree = ET.ElementTree(root)
-        tree.write(Nombre_Archivo)
+        for indice, usuarios in enumerate(root.findall('usuario')):
+            nombre = usuarios.find('nombre').text
+            apellido = usuarios.find('apellido').text
+            telefono = usuarios.find('telefono').text
+            correo = usuarios.find('correo').text
+            contraseña = usuarios.find('contrasena').text
+            rol = usuarios.find('rol').text
+            
+            if operacion == 1: # agregar datos a lista
+                comprobar = self.ComprobarCorreo(correo)
+                if comprobar == False:
+                    self.Agregar(nombre, apellido, telefono, correo, contraseña, rol)
+                else:
+                    print("Fallo")
 
 AñadirUsuario = ListaUsuarios()

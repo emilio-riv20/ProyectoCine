@@ -44,3 +44,8 @@ def ModificarSalas(request):
 
 def MostrarSalas(request):
     return render(request, 'MostrarSalas.html', {'Nodo': ListaSalas})
+
+def Cargar_xmlS(request):
+    if request.method == 'POST':
+        ListaSalas.Cargar_xmlS(1)
+    return render(request, 'MostrarSalas.html', {'Nodo': ListaSalas})
