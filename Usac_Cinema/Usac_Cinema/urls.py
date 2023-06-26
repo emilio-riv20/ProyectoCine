@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Cine.views import Menu, RegistrarUsuario, IniciarSesion, MenuCliente
-from Peliculas.views import RegistrarPeliculas, EliminarPeliculas, ModificarPeliculas, ListaPeliculas, Cargar_xmlP
+from Peliculas.views import RegistrarPeliculas, EliminarPeliculas, ModificarPeliculas, ListaPeliculas, Cargar_xmlP, ListaPeliculasMenu, ListaPeliculasMenuCliente
 from Administrador.views import  MenuAdmin, RegistrarUsuarios, EliminarUsuarios, ModificarUsuarios, Lista_Usuarios, Cargar_xml
 from Salas.views import RegistrarSalas, EliminarSalas, MostrarSalas, ModificarSalas, Cargar_xmlS
 
@@ -28,6 +28,8 @@ urlpatterns = [
     path('MenuAdmin/RegistrarPeliculas', RegistrarPeliculas, name = 'RegistrarPeliculas'),
     path('IniciarSesion', IniciarSesion, name = 'IniciarSesion'),
     path('Menu/Cliente/', MenuCliente, name = 'MenuCliente'),
+    path('ListaPeliculasMenu', ListaPeliculasMenu, name = 'ListaPeliculasMenu'),
+    path('Menu/Cliente/ListaPeliculasMenuCliente', ListaPeliculasMenuCliente, name = 'ListaPeliculasMenuCliente'),
     
     path('MenuAdmin/', MenuAdmin, name = 'MenuAdmin'),
     path('MenuAdmin/EliminarPeliculas', EliminarPeliculas, name='EliminarPeliculas'),

@@ -52,6 +52,12 @@ def ModificarPeliculas(request):
 def ListaPeliculas(request):
     return render(request, 'ListaPeliculas.html', {'NodoPelis': ListadoPelis})
 
+def ListaPeliculasMenu(request):
+    return render(request, 'ListaPeliculasMenu.html', {'NodoPelis': ListadoPelis})
+
+def ListaPeliculasMenuCliente(request):
+    return render(request, 'ListaPeliculasMenuCliente.html', {'NodoPelis': ListadoPelis})
+
 def Cargar_xmlP(request):
     if request.method == 'POST':
         ListadoPelis.Cargar_xmlP(1)
