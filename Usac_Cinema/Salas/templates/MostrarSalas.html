@@ -2,7 +2,7 @@
 <html>
 <head>
     {% load static %}
-    <title>ListaUsuarios</title>
+    <title>Lista de Salas</title>
     <link rel="stylesheet" href="{% static 'css/Estilos.css' %}">
 </head>
 <style>
@@ -28,11 +28,7 @@
       background-color: #f2f2f2;
     }
 
-  button{
-    background-color: #ffffff;
-  }
-
-  form {
+    form {
     background-color: #b4a1e7;
     padding: 20px;
     border-radius: 10px;
@@ -57,40 +53,34 @@
     
   </style>
 <body>
-
     <ul class="menu">
-        <!-- Datos de la cinta de opciones -->
         <li><a href="/MenuAdmin">Volver</a></li>
-      </ul>
+    </ul>
     <br>
-    <h1>Lista de Usuarios</h1>
+    <h1>Lista de Salas</h1>
     <br>
     <table>
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Teléfono</th>
-                <th>Correo</th>
-                <th>Rol</th>
+                <th>Número de Sala</th>
+                <th>Número de Asientos</th>
             </tr>
         </thead>
         <tbody>
-            {% for usuario in Nodo %}
+            {% for salas in Nodo %}
             <tr>
-                <td>{{ usuario.nombre}} </td>
-                <td>{{ usuario.apellido}} </td>
-                <td>{{ usuario.telefono}} </td>
-                <td>{{ usuario.correo}} </td>
-                <td>{{ usuario.rol}} </td>
+    
+                <td>{{ salas.N_sala }}</td>
+                <td>{{ salas.N_asiento }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    <form method="POST" action="{% url 'Cargar_xml' %}">
-      {% csrf_token %}
-      <button type="submit">Cargar XML</button>
-  </form>
+
+    <form method="POST" action="{% url 'Cargar_xmlS' %}">
+        {% csrf_token %}
+        <button type="submit">Cargar XML</button>
+    </form>
 
 </body>
 </html>

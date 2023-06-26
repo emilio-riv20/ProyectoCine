@@ -1,0 +1,30 @@
+<peliculas>
+
+<pelicula>
+<id>1</id>
+<nombre>Avengers: Endgame</nombre>
+<fecha>2023-06-05</fecha>
+<hora>18:30</hora>
+<categoria>Acción</categoria>
+<link>https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg</link>
+</pelicula>
+
+<pelicula>
+<id>2</id>
+<nombre>John Wick</nombre>
+<fecha>2023-06-06</fecha>
+<hora>20:00</hora>
+<categoria>Acción</categoria>
+<link>https://m.media-amazon.com/images/I/81F5PF9oHhL.jpg</link>
+</pelicula>
+
+<pelicula>
+<id>3</id>
+<nombre>Misión Imposible</nombre>
+<fecha>2023-06-07</fecha>
+<hora>19:15</hora>
+<categoria>Acción</categoria>
+<link>https://m.media-amazon.com/images/M/MV5BMTc3NjI2MjU0Nl5BMl5BanBnXkFtZTgwNDk3ODYxMTE@._V1_FMjpg_UX1000_.jpg</link>
+</pelicula>
+
+</peliculas>

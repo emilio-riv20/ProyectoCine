@@ -17,8 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Cine.views import Menu, RegistrarUsuario, IniciarSesion, MenuCliente
-from Peliculas.views import RegistrarPeliculas, EliminarPeliculas, ModificarPeliculas, ListaPeliculas
-from Administrador.views import  MenuAdmin, RegistrarUsuarios, EliminarUsuarios, ModificarUsuarios, Lista_Usuarios
+from Peliculas.views import RegistrarPeliculas, EliminarPeliculas, ModificarPeliculas, ListaPeliculas, Cargar_xmlP
+from Administrador.views import  MenuAdmin, RegistrarUsuarios, EliminarUsuarios, ModificarUsuarios, Lista_Usuarios, Cargar_xml
+from Salas.views import RegistrarSalas, EliminarSalas, MostrarSalas, ModificarSalas, Cargar_xmlS
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,9 +33,18 @@ urlpatterns = [
     path('MenuAdmin/EliminarPeliculas', EliminarPeliculas, name='EliminarPeliculas'),
     path('MenuAdmin/ModificarPeliculas', ModificarPeliculas, name = 'ModificarPeliculas'),
     path('MenuAdmin/Listado', ListaPeliculas, name = 'ListaPeliculas'),
+    path('MenuAdmin/Cargar_xmlP', Cargar_xmlP, name = 'Cargar_xmlP'),
 
     path('MenuAdmin/RegistrarUsuarios', RegistrarUsuarios, name = 'RegistrarUsuarios'),
     path('MenuAdmin/EliminarUsuarios', EliminarUsuarios, name = 'EliminarUsuarios'),
     path('MenuAdmin/ModificarUsuarios', ModificarUsuarios, name = 'ModificarUsuarios'),
-    path('MenuAdmin/MostrarUsuarios', Lista_Usuarios, name = 'Lista_Usuarios') 
+    path('MenuAdmin/MostrarUsuarios', Lista_Usuarios, name = 'Lista_Usuarios'),
+    path('MenuAdmin/Cargar_xml', Cargar_xml, name = 'Cargar_xml'),
+
+    path('MenuAdmin/RegistrarSalas', RegistrarSalas, name = 'RegistrarSalas'),
+    path('MenuAdmin/EliminarSalas', EliminarSalas, name = 'EliminarSalas'),
+    path('MenuAdmin/ModificarSalas', ModificarSalas, name = 'ModificarSalas'),
+    path('MenuAdmin/MostrarSalas', MostrarSalas, name = 'MostrarSalas'),
+    path('MenuAdmin/Cargar_xmlS', Cargar_xmlS, name = 'Cargar_xmlS')
+
 ]

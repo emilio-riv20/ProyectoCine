@@ -53,5 +53,9 @@ def ModificarUsuarios(request):
     return render(request, 'ModificarUsuarios.html')
 
 def Lista_Usuarios(request):
-    Nodo = AñadirUsuario
-    return render(request, 'MostrarUsuarios.html', {'Nodo': Nodo})
+    return render(request, 'MostrarUsuarios.html', {'Nodo': AñadirUsuario})
+
+def Cargar_xml(request):
+    if request.method == 'POST':
+        AñadirUsuario.CargarXML(1)
+    return render(request, 'MostrarUsuarios.html', {'Nodo': AñadirUsuario})
