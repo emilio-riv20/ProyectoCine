@@ -1,9 +1,23 @@
+
 ListaBoletos = []
 
 class DatosBoletos:
+
     def AgregarCompra(self, id, boletos, sala, asientos, fecha, hora, nombre, nit, direccion, metodo, total):
         boleto = {'id': id,'boletos': boletos, 'sala': sala,'asientos': asientos,'fecha': fecha, 'hora': hora, 'nombre': nombre, 'nit': nit, 'direccion': direccion, 'metodo': metodo, 'total': total}
         ListaBoletos.append(boleto)
+
+    def __iter__(self):
+        self.indice = 0
+        return self
+
+    def __next__(self):
+        if self.indice < len(ListaBoletos):
+            boleto = ListaBoletos[self.indice]
+            self.indice += 1
+            return boleto
+        else:
+            raise StopIteration
 
 
     """def Imprimir(self, nombre, boletos):
