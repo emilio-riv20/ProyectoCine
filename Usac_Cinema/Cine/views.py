@@ -66,14 +66,17 @@ def Compra(request):
                 messages.error(request, 'La cantidad de Boletos debe ser mayor a 0')
             else:
                 if nit != 0:
-                    total = boletos * 42
+                    total = int (boletos) * 42
                     Boletos.AgregarCompra(id, boletos, sala, asientos, fecha, hora, nombre, nit, direccion, metodo, total)
                     messages.success(request, 'Boleto añadido')
                 elif nit == 0:
-                    total = boletos * 42
+                    total = int (boletos) * 42
                     Boletos.AgregarCompra(id, boletos, sala, asientos, fecha, hora, nombre, nit, 'CF', metodo, total)
                     messages.success(request, 'Boleto añadido')
         else:
             messages.error(request, 'Id o Sala no existentes')
 
     return render(request, 'Compra.html')
+
+def ListaBoletos(request):
+    return render(request, 'ListaBoletos.html', {'Boletos': Boletos})

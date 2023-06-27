@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <title>Lista Boletos</title>
+        <link rel="stylesheet" href="{% static 'css/Estilos.css' %}">
+    </head>
+    <style>
+table {
+
+width: 25%;
+border-collapse: collapse;
+margin-left: auto;
+margin-right: auto;
+}
+
+th, td {
+    padding: 7px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px;
+    border-right: 1px;
+    background-color: #ffffff;
+}
+
+th {
+    text-align: center;
+    background-color: #f2f2f2;
+}
+    </style>
+    <body>
+        <ul class ="menu">
+            <li><a href="/Menu/Cliente">Volver</a></li>
+            <li><a href="/Menu/Cliente/Compra">Comprar Boletos</a></li>
+        </ul>
+        <br>
+
+        <h1>Lista de Boletos</h1>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Boletos</th>
+                    <th>Sala</th>
+                    <th>Asientos</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>NIT</th>
+                    <th>Dirección</th>
+                    <th>Método</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for boleto in Boletos %}
+                <tr>
+                    <td>{{ boleto.id}} </td>
+                    <td>{{ boleto.id}} </td>
+                    <td>{{ boleto.sala}} </td>
+                    <td>{{ boleto.asientos}} </td>
+                    <td>{{ boleto.fecha}} </td>
+                    <td>{{ boleto.hora}} </td>
+                    <td>{{ boleto.nit}} </td>
+                    <td>{{ boleto.direccion}} </td>
+                    <td>{{ boleto.metodo}} </td>
+                    <td>{{ boleto.total}} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </body>
+</html>
