@@ -45,7 +45,7 @@ def IniciarSesion(request):
 def MenuCliente(request):
     return render(request, 'MenuCliente.html')
 
-def CompraBoletos(request):
+def Compra(request):
     if request.method == 'POST':
         id = request.POST.get('id')
         boletos = request.POST.get('boletos')
@@ -68,4 +68,4 @@ def CompraBoletos(request):
         else:
             messages.error(request, 'Id o Sala no existentes')
 
-
+    return render(request, 'Compra.html')
