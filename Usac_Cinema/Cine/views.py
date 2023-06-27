@@ -1,6 +1,9 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from Cine.Codigo.Registrar_Usuario import AñadirUsuario
+from Cine.Codigo.Boletos import Boletos
+from Peliculas.Codigo.Listado_Pelis import ListadoPelis
+from Salas.Codigo.Salas import ListaSalas
 
 AñadirUsuario.Agregar('Emilio', 'Rivera', '58725886', 'lemilioriveray@gmail.com', '123456', 'Administrador')
 
@@ -42,5 +45,35 @@ def IniciarSesion(request):
 def MenuCliente(request):
     return render(request, 'MenuCliente.html')
 
+def Compra(request):
+    if request.method == 'POST':
+        id = request.POST.get('id')
+        boletos = request.POST.get('boletos')
+        sala = request.POST.get('sala')
+        asientos = request.POST.get('asientos')
+        fecha = request.POST.get('fecha')
+        hora = request.POST.get('hora')
+        nombre = request.POST.get('nombre')
+        nit = request.POST.get('nit')
+        direccion = request.POST.get('direccion')
+        metodo = request.POST.get('metodo')
 
+        comprobarId = ListadoPelis.ComprobarID(id)
+        comprobarSala = ListaSalas.Comprobar(sala)
 
+        if comprobarId == True and comprobarSala == True:
+            if int (boletos) <= 0:
+                messages.error(request, 'La cantidad de Boletos debe ser mayor a 0')
+            else:
+                if nit != 0:
+                    total = boletos * 42
+                    Boletos.AgregarCompra(id, boletos, sala, asientos, fecha, hora, nombre, nit, direccion, metodo, total)
+                    messages.success(request, 'Boleto añadido')
+                elif nit == 0:
+                    total = boletos * 42
+                    Boletos.AgregarCompra(id, boletos, sala, asientos, fecha, hora, nombre, nit, 'CF', metodo, total)
+                    messages.success(request, 'Boleto añadido')
+        else:
+            messages.error(request, 'Id o Sala no existentes')
+
+    return render(request, 'Compra.html')

@@ -5,26 +5,47 @@
         <title>Compra Boletos</title>
         <link rel="stylesheet" href="{% static 'css/Estilos.css' %}">
     </head>
+    <style>
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 500px;
+    height: 750px;
+    margin:0 auto;
+    display: block;
+  }
+
+  select{
+    background-color: #ffffff;
+    padding: 5px;
+    border-radius: 10px;
+    margin:0 auto;
+    display: block;
+  }
+    </style>
+
     <body>
         <ul class="menu">
-            <li><a href="/Menu/Cliente">Colver</a></li>
+            <li><a href="/Menu/Cliente">Volver</a></li>
             <li><a href="Historial">Ver Historial</a></li>
           </ul>
-          <br>    <h1 style="text-align: center;">Registrar Usuario</h1>
+          <br>   
+         <h1 style="text-align: center;">Comprar Boletos</h1>
           <br>
           <form method="post">
               {% csrf_token %}
-              <label for="asientos">Ingrese el ID de la Película:</label>
-              <input type="number" name = "asientos" required>
+              <label for="id">Ingrese el ID de la Película:</label>
+              <input type="number" name = "id" required>
               <br>
-              <label for="boleto">Ingrese la cantidad de Boletos:</label>
-              <input type="number" name = "boleto" required>
+              <label for="boletos">Ingrese la cantidad de Boletos:</label>
+              <input type="number" name = "boletos" required>
               <br>
-              <label for="numero">Ingrese número de sala:</label>
-              <input type="number" name = "numero" required>
+              <label for="sala">Ingrese número de sala:</label>
+              <input type="number" name = "sala" required>
               <br>
-              <label for="asiento">Ingrese número de asientos:</label>
-              <input type="number" name="asiento" required>
+              <label for="asientos">Ingrese número de asientos:</label>
+              <input type="number" name="asientos" required>
               <br>
               <label for="fecha">Ingrese la fecha de función:</label>
               <input type="date" name = "fecha" required>
@@ -34,15 +55,29 @@
               <br>
               <label for="nombre">Ingrese su nombre para la factura:</label>
               <input type="text" name = "nombre" required>
-              br
+              <br>
               <label for="nit">Ingrese el NIT (Ingrese 0 para CF):</label>
               <input type="number" name = "nit" required>
               <br>
               <label for="direccion">Ingrese su Dirección:</label>
               <input type="text" name = "direccion" required>
-
-      
+              <br>
+              <select name="metodo" id="metodo">
+                <option value="Credito">Crédito</option>
+                <option value="Debito">Debito</option>
+                <option value="Efectivo">Efectivo</option>
+              </select>
+              <br>
               <input type="submit" value="Hacer Pago">
           </form>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
     </body>
 </html>
