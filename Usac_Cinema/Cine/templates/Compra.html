@@ -10,7 +10,8 @@
             <li><a href="/Menu/Cliente">Colver</a></li>
             <li><a href="Historial">Ver Historial</a></li>
           </ul>
-          <br>    <h1 style="text-align: center;">Registrar Usuario</h1>
+          <br>   
+         <h1 style="text-align: center;">Comprar Boletos</h1>
           <br>
           <form method="post">
               {% csrf_token %}
@@ -34,14 +35,19 @@
               <br>
               <label for="nombre">Ingrese su nombre para la factura:</label>
               <input type="text" name = "nombre" required>
-              br
+              <br>
               <label for="nit">Ingrese el NIT (Ingrese 0 para CF):</label>
               <input type="number" name = "nit" required>
               <br>
               <label for="direccion">Ingrese su Dirección:</label>
               <input type="text" name = "direccion" required>
-
-      
+              <br>
+              <select name="metodo" id="metodo">
+                <option value="Credito">Crédito</option>
+                <option value="Debito">Debito</option>
+                <option value="Efectivo">Efectivo</option>
+              </select>
+              <br>
               <input type="submit" value="Hacer Pago">
           </form>
     </body>

@@ -1,9 +1,9 @@
 ListaBoletos = []
 
 class DatosBoletos:
-    def AgregarCompra(self, nombre, nit, direccion, boletos, sala, asientos, total):
+    def AgregarCompra(self, id, boletos, sala, asientos, fecha, hora, nombre, nit, direccion, metodo, total):
         for i in range (boletos):
-            boleto = {'nombre': nombre,'nit': nit,'direccion': direccion,'sala': sala, 'asientos': asientos, 'total': total}
+            boleto = {'nombre': nombre,'nit': nit,'direccion': direccion,'sala': sala, 'asientos': asientos, 'metodo': metodo, 'total': total}
             ListaBoletos.append(boleto)
             i += 1
 
@@ -37,3 +37,5 @@ class DatosBoletos:
                 print("Asientos:",boleto['asientos'])
                 print("Total:",boleto['total'])
                 print("-------------------------")
+
+Boletos = DatosBoletos()
