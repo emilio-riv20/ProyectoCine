@@ -2,13 +2,11 @@ ListaBoletos = []
 
 class DatosBoletos:
     def AgregarCompra(self, id, boletos, sala, asientos, fecha, hora, nombre, nit, direccion, metodo, total):
-        for i in range (boletos):
-            boleto = {'nombre': nombre,'nit': nit,'direccion': direccion,'sala': sala, 'asientos': asientos, 'metodo': metodo, 'total': total}
-            ListaBoletos.append(boleto)
-            i += 1
+        boleto = {'id': id,'boletos': boletos, 'sala': sala,'asientos': asientos,'fecha': fecha, 'hora': hora, 'nombre': nombre, 'nit': nit, 'direccion': direccion, 'metodo': metodo, 'total': total}
+        ListaBoletos.append(boleto)
 
 
-    def Imprimir(self, nombre, boletos):
+    """def Imprimir(self, nombre, boletos):
         if len(ListaBoletos) > 0:
             for boleto in ListaBoletos:
                 for i in range(boletos):
@@ -36,6 +34,6 @@ class DatosBoletos:
                 print("Sala:",boleto['sala'])
                 print("Asientos:",boleto['asientos'])
                 print("Total:",boleto['total'])
-                print("-------------------------")
+                print("-------------------------")"""
 
 Boletos = DatosBoletos()

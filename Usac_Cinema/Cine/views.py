@@ -49,7 +49,7 @@ def Compra(request):
     if request.method == 'POST':
         id = request.POST.get('id')
         boletos = request.POST.get('boletos')
-        sala = request.POST.get('boletos')
+        sala = request.POST.get('sala')
         asientos = request.POST.get('asientos')
         fecha = request.POST.get('fecha')
         hora = request.POST.get('hora')
@@ -62,9 +62,17 @@ def Compra(request):
         comprobarSala = ListaSalas.Comprobar(sala)
 
         if comprobarId == True and comprobarSala == True:
-            total = boletos * 42
-            Boletos.AgregarCompra(id, boletos, sala, asientos, fecha, hora, nombre, nit, direccion, metodo, total)
-            messages.success(request, 'Compra añadida')
+            if int (boletos) <= 0:
+                messages.error(request, 'La cantidad de Boletos debe ser mayor a 0')
+            else:
+                if nit != 0:
+                    total = boletos * 42
+                    Boletos.AgregarCompra(id, boletos, sala, asientos, fecha, hora, nombre, nit, direccion, metodo, total)
+                    messages.success(request, 'Boleto añadido')
+                elif nit == 0:
+                    total = boletos * 42
+                    Boletos.AgregarCompra(id, boletos, sala, asientos, fecha, hora, nombre, nit, 'CF', metodo, total)
+                    messages.success(request, 'Boleto añadido')
         else:
             messages.error(request, 'Id o Sala no existentes')
 
