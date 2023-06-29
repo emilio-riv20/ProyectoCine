@@ -9,7 +9,8 @@ AñadirUsuario.Agregar('Emilio', 'Rivera', '58725886', 'lemilioriveray@gmail.com
 
 # Create your views here.
 def Menu(request):
-    return render(request, 'Menu.html')
+    #ListadoPelis = ListadoPelis[:10]
+    return render(request, 'Menu.html', {'NodoPelis': ListadoPelis})
 
 def RegistrarUsuario(request):
     if request.method == 'POST':

@@ -57,7 +57,7 @@ def ModificarPeliculas(request):
     return render(request, 'ModificarPeliculas.html')
 
 def ListaPeliculas(request):
-    return render(request, 'ListaPeliculas.html', {'NodoPelis': ListadoPelis})
+    return render(request, 'MostrarPeliculas.html', {'NodoPelis': ListadoPelis})
 
 def ListaPeliculasMenu(request):
     return render(request, 'ListaPeliculasMenu.html', {'NodoPelis': ListadoPelis})
@@ -86,4 +86,4 @@ def Cargar_xmlP(request):
             else:
                 print("Película existente Existente")
 
-    return render(request, 'ListaPeliculas.html', {'NodoPelis': ListadoPelis})
+    return render(request, 'MostrarPeliculas.html', {'NodoPelis': ListadoPelis})

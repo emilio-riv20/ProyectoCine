@@ -36,7 +36,7 @@ urlpatterns = [
     path('MenuAdmin/', MenuAdmin, name = 'MenuAdmin'),
     path('MenuAdmin/EliminarPeliculas', EliminarPeliculas, name='EliminarPeliculas'),
     path('MenuAdmin/ModificarPeliculas', ModificarPeliculas, name = 'ModificarPeliculas'),
-    path('MenuAdmin/Listado', ListaPeliculas, name = 'ListaPeliculas'),
+    path('MenuAdmin/MostrarPeliculas', ListaPeliculas, name = 'ListaPeliculas'),
     path('MenuAdmin/Cargar_xmlP', Cargar_xmlP, name = 'Cargar_xmlP'),
 
     path('MenuAdmin/RegistrarUsuarios', RegistrarUsuarios, name = 'RegistrarUsuarios'),
