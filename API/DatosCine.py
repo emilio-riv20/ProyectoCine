@@ -42,36 +42,36 @@ def getPeliculas():
             retorno = {
                 'pelicula': [
                 {
-                    "id": "4",
+                    "id": "6",
                     "nombre": "Super Mario Bros",
                     "fecha": "2023-06-28",
                     "hora": "17:30",
                     "categoria": "Animación",
-                    "link": "https://m.media-amazon.com/images/M/MV5BOTJhNzlmNzctNTU5Yy00N2YwLThhMjQtZDM0YjEzN2Y0ZjNhXkEyXkFqcGdeQXVyMTEwMTQ4MzU5._V1_FMjpg_UX1000_.jpg"
+                    "link": "https://acortar.link/JbuxgS"
                 },
                 {
-                    "id": "5",
+                    "id": "7",
                     "nombre": "Ovnis en Zacapa",
                     "fecha": "2023-06-30",
                     "hora": "13:00",
                     "categoria": "Ciencia Ficción",
-                    "link": "https://m.media-amazon.com/images/M/MV5BZGExMmEyMzgtYTQwYy00ZmI0LWI5NjUtNWEwY2M5YjE2ZjU0XkEyXkFqcGdeQXVyNDU0Njk2NTM@._V1_.jpg"
+                    "link": "https://acortar.link/pNEnSj"
                 },
                 {
-                    "id": "6",
+                    "id": "8",
                     "nombre": "Spiderman",
                     "fecha": "2023-06-30",
                     "hora": "15:30",
                     "categoria": "Acción",
-                    "link": "https://flxt.tmsimg.com/assets/p13222290_b_v9_ad.jpg"
+                    "link": "https://acortar.link/dKEwnJ"
                 },
                 {
-                    "id": "7",
+                    "id": "9",
                     "nombre": "The Batman",
                     "fecha": "2023-07-01",
                     "hora": "10:00",
                     "categoria": "Acción",
-                    "link": "https://assets-prd.ignimgs.com/2021/10/15/new-batman-poster-1634314278488.jpg"
+                    "link": "https://acortar.link/qKNE9K"
                 }
                 ]
             }
