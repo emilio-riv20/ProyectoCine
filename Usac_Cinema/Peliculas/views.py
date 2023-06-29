@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
 from Peliculas.Codigo.Listado_Pelis import ListadoPelis
+import requests
 
 # Create your views here.
 def RegistrarPeliculas(request):
@@ -43,8 +44,14 @@ def ModificarPeliculas(request):
             nuevaHora = request.POST.get('nuevaHora')
             nuevaCategoria = request.POST.get('nuevaCategoria')
             nuevoLink = request.POST.get('nuevoLink')
-            ListadoPelis.Modificar(id, nuevoID, nuevoNombre, nuevaFecha, nuevaHora, nuevaCategoria, nuevoLink)
-            messages.success(request, 'Película Modificada')
+            
+            comprobarIdNuevo = ListadoPelis.ComprobarID(nuevoID)
+
+            if comprobarIdNuevo == False:
+                ListadoPelis.Modificar(id, nuevoID, nuevoNombre, nuevaFecha, nuevaHora, nuevaCategoria, nuevoLink)
+                messages.success(request, 'Película Modificada')
+            else:
+                messages.error(request, 'Id en uso')
         else:
             messages.error(request, 'Película No Encontrada')
     return render(request, 'ModificarPeliculas.html')
@@ -61,4 +68,22 @@ def ListaPeliculasMenuCliente(request):
 def Cargar_xmlP(request):
     if request.method == 'POST':
         ListadoPelis.Cargar_xmlP(1)
+
+        response = requests.get('http://localhost:5007/getPeliculas')
+        APIpeliculas = response.json()
+
+        for pelicula in APIpeliculas['pelicula']:
+            id = pelicula['id']
+            nombre = pelicula['nombre']
+            fecha = pelicula['fecha']
+            hora = pelicula['hora']
+            categoriaP = pelicula.get('categoria')
+            link = pelicula['link']
+
+            comprobar = ListadoPelis.ComprobarID(id)
+            if comprobar == False:
+                ListadoPelis.Agregar(id, nombre, fecha, hora, categoriaP, link)
+            else:
+                print("Película existente Existente")
+
     return render(request, 'ListaPeliculas.html', {'NodoPelis': ListadoPelis})

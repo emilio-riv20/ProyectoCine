@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from Cine.Codigo.Registrar_Usuario import AñadirUsuario
 from django.contrib import messages
+import requests
 
 # Create your views here.
 def MenuAdmin(request):
@@ -58,4 +59,21 @@ def Lista_Usuarios(request):
 def Cargar_xml(request):
     if request.method == 'POST':
         AñadirUsuario.CargarXML(1)
+
+        response = requests.get('http://localhost:5007/getUsuarios')
+        APIusuarios = response.json()
+
+        for usuario in APIusuarios['usuarios']:
+            nombre = usuario['nombre']
+            apellido = usuario['apellido']
+            telefono = usuario['telefono']
+            correo = usuario['correo']
+            contraseña = usuario['contraseña']
+            rol = usuario['rol']
+            comprobar = AñadirUsuario.ComprobarCorreo(correo)
+            if comprobar == False:
+                AñadirUsuario.Agregar(nombre, apellido, telefono, correo, contraseña, rol)
+            else:
+                print("Correo Existente")
+
     return render(request, 'MostrarUsuarios.html', {'Nodo': AñadirUsuario})
