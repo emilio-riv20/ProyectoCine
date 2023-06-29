@@ -81,6 +81,33 @@ def getPeliculas():
 
     except:
         return {"mensaje": "Error interno en el servidor", "status": 500} 
+    
+@app.route('/getSalas', methods=['GET'])
+def getSalas():
+    try:
+        if request.method == 'GET':
+            retorno = {
+                'sala': [
+                {
+                    "numero": "4",
+                    "asientos": "200",
+                },
+                {
+                    "numero": "5",
+                    "asientos": "190",
+                },
+                {
+                    "numero": "6",
+                    "asientos": "150"
+                }
+                ]
+            }
+        else:
+            retorno = {'mensaje': 'Error en la petición, método incorrecto'}
+        return jsonify(retorno)
+
+    except:
+        return {"mensaje": "Error interno en el servidor", "status": 500} 
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5007)
