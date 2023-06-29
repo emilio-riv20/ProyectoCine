@@ -3,22 +3,8 @@
 <head>
   {% load static %}
   <title>USAC-CINEMA</title>
-  <link rel="stylesheet" href="{% static 'css/Estilos.css' %}">
+  <link rel="stylesheet" href="{% static 'css/Carrusel.css' %}">
 </head>
-
-<style>
-    h1{
-    color: #000000;
-    background-color: #ffffff;
-    text-align: center;
-    padding: 10px;
-    border-radius: 10px;
-    width: 300px;
-    height: 30px;
-    margin: 0 auto;
-    display: block;
-  }
-</style>
 
 <body>
   <ul class="menu">
@@ -27,7 +13,47 @@
     <li><a href="RegistrarUsuario">Registrar Usuario</a></li>
     <li><a href="ListaPeliculasMenu">Catalogo de Películas </a></li>
   </ul>
-
+    <br>
     <h1>USAC-CINEMA</h1>
+    <br>
+    <div class = "carrusel">
+      {% for imagen in NodoPelis %}
+      <img src="{{ imagen.link }}" alt="Imagen">
+      {% endfor %}
+      <button class="prev" onclick="prevSlide()">&#10094;</button>
+      <button class="next" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <script>
+      var slideIndex = 0;
+      showSlide(slideIndex);
+
+      function prevSlide() {
+          showSlide(slideIndex -= 1);
+      }
+
+      function nextSlide() {
+          showSlide(slideIndex += 1);
+      }
+
+      function showSlide(index) {
+          var slides = document.getElementsByTagName('img');
+
+          if (index >= slides.length) {
+              slideIndex = 0;
+          }
+
+          if (index < 0) {
+              slideIndex = slides.length - 1;
+          }
+
+          for (var i = 0; i < slides.length; i++) {
+              slides[i].style.display = 'none';
+          }
+
+          slides[slideIndex].style.display = 'block';
+      }
+  </script>
+
 </body>
 </html>
