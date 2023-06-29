@@ -93,6 +93,7 @@ display: block;
       </ul>
       <br>
     <h1>Lista de Películas</h1>
+    <br>
     <table>
         <thead>
             <tr>
@@ -107,7 +108,7 @@ display: block;
         <tbody>
             {% for peliculas in NodoPelis %}
             <tr>
-                <td> {{ peliculas.id }}</td>
+                <td> {{ peliculas.ID }}</td>
                 <td> {{ peliculas.nombre }} </td>
                 <td> {{ peliculas.fecha }} </td>
                 <td> {{ peliculas.hora }} </td>
