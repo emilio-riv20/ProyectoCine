@@ -1,0 +1,76 @@
+.carrusel {
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto; /* Agregar esta línea para centrar horizontalmente */
+    display: flex; /* Agregar esta línea para centrar verticalmente */
+    align-items: center;
+}
+.carrusel img {
+    width: 200px;
+    height: 300px;
+    margin: 10px;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: flex;
+
+}
+.carrusel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+.carrusel button.prev {
+    left: 100px;
+}
+.carrusel button.next {
+    right: 100px;
+}
+h1{
+    color: #000000;
+    background-color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    width: 300px;
+    height: 30px;
+    margin: 0 auto;
+    display: block;
+  }
+  .menu{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #403855;
+    border-radius: 10px;
+}
+.menu li {
+    float: left;
+  }
+
+  .menu li a {
+      /*Esto es para la configuración de letra de la cinta de opciones*/
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 10px;
+  }
+
+  .menu li a:hover {
+      /*Esto es para cambiar el color de las opciones de la cinta al momento de pasar el mouse sobre ellas*/
+    background-color: #8c60aa;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #b4a1e7;
+  }
