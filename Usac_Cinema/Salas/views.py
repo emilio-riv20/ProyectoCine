@@ -37,8 +37,14 @@ def ModificarSalas(request):
         if comprobar == True:
             nuevoNumero = request.POST.get('nuevoNumero')
             nuevosAsientos = request.POST.get('nuevosAsientos')
-            ListaSalas.Modificar(numero, nuevoNumero, nuevosAsientos)
-            messages.success(request, 'Sala Modificado')
+
+            comprobarSalaNueva = ListaSalas.Comprobar(nuevoNumero)
+
+            if comprobarSalaNueva == False:
+                ListaSalas.Modificar(numero, nuevoNumero, nuevosAsientos)
+                messages.success(request, 'Sala Modificado')
+            else:
+                messages.error(request, 'Número en uso')
         else:
             messages.error(request, 'Sala No Encontrada')
     return render(request, 'ModificarSalas.html')
