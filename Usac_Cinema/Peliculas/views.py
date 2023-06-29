@@ -44,8 +44,14 @@ def ModificarPeliculas(request):
             nuevaHora = request.POST.get('nuevaHora')
             nuevaCategoria = request.POST.get('nuevaCategoria')
             nuevoLink = request.POST.get('nuevoLink')
-            ListadoPelis.Modificar(id, nuevoID, nuevoNombre, nuevaFecha, nuevaHora, nuevaCategoria, nuevoLink)
-            messages.success(request, 'Película Modificada')
+            
+            comprobarIdNuevo = ListadoPelis.ComprobarID(nuevoID)
+
+            if comprobarIdNuevo == False:
+                ListadoPelis.Modificar(id, nuevoID, nuevoNombre, nuevaFecha, nuevaHora, nuevaCategoria, nuevoLink)
+                messages.success(request, 'Película Modificada')
+            else:
+                messages.error(request, 'Id en uso')
         else:
             messages.error(request, 'Película No Encontrada')
     return render(request, 'ModificarPeliculas.html')
