@@ -37,6 +37,42 @@ form {
     display: block;
   }
 
+  table {
+
+width: 25%;
+border-collapse: collapse;
+margin-left: auto;
+margin-right: auto;
+}
+
+th, td {
+padding: 7px;
+text-align: center;
+border-bottom: 1px solid #ddd;
+border-left: 1px;
+border-right: 1px;
+background-color: #ffffff;
+}
+
+th {
+text-align: center;
+background-color: #f2f2f2;
+}
+
+button{
+background-color: #ffffff;
+}
+
+form {
+background-color: #b4a1e7;
+padding: 20px;
+border-radius: 10px;
+width: 100px;
+height: 50px;
+margin:0 auto;
+display: block;
+}
+
   button[type="submit"] {
     background-color: #4CAF50;
     color: #fff;
@@ -57,31 +93,31 @@ form {
       </ul>
       <br>
     <h1>Lista de Películas</h1>
-    <tbody>
-        {% for peliculas in NodoPelis %}
-        <tr>
-            <div class="imagen">
-                <img src="{{ peliculas.link }}" alt="Imagen">
-                <div class="texto">
-                    <h4>ID: {{ peliculas.ID }}
-                        <br>
-                        <br>
-                        Nombre: {{ peliculas.nombre }}
-                        <br>
-                        <br>
-                        Fecha de Función: {{ peliculas.fecha }}
-                        <br>
-                        <br>
-                        Hora de Función: {{ peliculas.hora }}
-                        <br>
-                        <br>
-                        Categoría: {{ peliculas.categoria }}
-                    </h4>
-                </div>
-            </div>
-        </tr>
-        {% endfor %}
-    </tbody>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Categoría</th>
+                <th>link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for peliculas in NodoPelis %}
+            <tr>
+                <td> {{ peliculas.id }}</td>
+                <td> {{ peliculas.nombre }} </td>
+                <td> {{ peliculas.fecha }} </td>
+                <td> {{ peliculas.hora }} </td>
+                <td> {{ peliculas.categoria }} </td>
+                <td> {{ peliculas.link }} </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
     <form method="POST" action="{% url 'Cargar_xmlP' %}">
         {% csrf_token %}
         <button type="submit">Cargar XML</button>
