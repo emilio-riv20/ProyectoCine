@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Lista de Tarjetas</title>
+    <link rel="stylesheet" href="{% static 'css/Estilos.css' %}">
+</head>
+<style>
+    table {
+
+      width: 25%;
+      border-collapse: collapse;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    th, td {
+      padding: 7px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      border-left: 1px;
+      border-right: 1px;
+      background-color: #ffffff;
+    }
+    
+    th {
+      text-align: center;
+      background-color: #f2f2f2;
+    }
+
+    form {
+    background-color: #b4a1e7;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+    margin:0 auto;
+    display: block;
+  }
+
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+    
+  </style>
+<body>
+    <ul class="menu">
+        <li><a href="/MenuAdmin">Volver</a></li>
+    </ul>
+    <br>
+    <h1>Lista de Tarjetas</h1>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Tipo</th>
+                <th>Número</th>
+                <th>Titular</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tarjetas in Nodo %}
+            <tr>
+    
+                <td>{{ tarjetas.tipo }}</td>
+                <td>{{ tarjetas.numero }}</td>
+                <td>{{ tarjetas.titular }}</td>
+                <td>{{ tarjetas.fecha }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <form method="POST" action="{% url 'Cargar_xmlT' %}">
+        {% csrf_token %}
+        <button type="submit">Cargar XML</button>
+    </form>
+
+</body>
+</html>

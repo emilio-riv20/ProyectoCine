@@ -1,0 +1,16 @@
+<tarjetas>
+
+<tarjeta>
+<tipo>Debito</tipo>
+<numero>1234567890123456</numero>
+<titular>John Doe</titular>
+<fecha>2023-06-30</fecha>
+</tarjeta>
+
+<tarjeta>
+<tipo>Credito</tipo>
+<numero>9876543210987654</numero>
+<titular>Jane Smith</titular>
+<fecha>2023-06-30</fecha>
+</tarjeta>
+</tarjetas>

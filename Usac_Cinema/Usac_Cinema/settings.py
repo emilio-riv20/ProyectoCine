@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'Cine',
     'Peliculas',
     'Salas',
-    'Administrador'
+    'Administrador',
+    'Tarjetas'
 ]
 
 MIDDLEWARE = [
