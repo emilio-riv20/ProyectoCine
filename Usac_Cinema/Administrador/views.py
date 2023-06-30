@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from Cine.Codigo.Registrar_Usuario import AñadirUsuario
+from Cine.Codigo.Boletos import Boletos
 from django.contrib import messages
 import requests
 
@@ -77,3 +78,12 @@ def Cargar_xml(request):
                 print("Correo Existente")
 
     return render(request, 'MostrarUsuarios.html', {'Nodo': AñadirUsuario})
+
+def ListaBoletosAdmin(request):
+
+    if request.method == 'POST':
+        nombre = request.POST.get('nombre')
+        Boletos.Eliminar(nombre)
+        messages.success(request, 'Boleto Cancelado')
+
+    return render(request, 'ListaBoletosAdmin.html', {'Boletos': Boletos})

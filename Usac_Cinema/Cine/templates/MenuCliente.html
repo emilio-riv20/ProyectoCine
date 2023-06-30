@@ -6,15 +6,58 @@
     <link rel="stylesheet" href="{% static 'css/Estilos.css' %}">
 
   </head>
+  <style>
+  h3{
+    background-color: #ffffff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    width: 200px;
+    height: 20px;
+    margin-left: 20px;
+    margin: 0 auto;
+    display: block;
+}
+.boton{
+    background-color: #F7D060;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    transition-duration: 0.4s; 
+    cursor: pointer;
+    margin-left: 20px;
+    margin: 0 auto;
+    display: block;
+}
+.boton:hover{
+    background-color: #af8b1f;
+    color: white;
+}
+
+  </style>
     <body>
       <ul class="menu">
-        <!-- Datos de la cinta de opciones -->
-        <li><a href="ListaPeliculasMenuCliente">Catalogo de Películas </a></li>
-        <li><a href="Favoritas">Ver Películas Favoritas</a></li>
-        <li><a href="Compra">Comprar Boletos</a></li>
-        <li><a href="ListaBoletos">Historial de Boletos Comprados</a></li>
         <li><a href="/">Cerrar Sesión</a></li>
       </ul>
-    
+      <br>
+      <h1>Menú</h1>
+      <br>
+      <h3>Películas en Cartelera</h3>
+      <br>
+      <button class = "boton" onclick="window.location.href='ListaPeliculasMenuCliente'">Cartelera</button> 
+      <br>
+      <h3>Comprar de Boletos</h3>
+      <br>
+      <button class = "boton" onclick="window.location.href='Compra'">Comprar</button>
+      <br>
+      <h3>Historial de Boletos</h3>
+      <br>
+      <button class = "boton" onclick="window.location.href='ListaBoletos'">Historial</button>
+      <br>
     </body>
 </html>
