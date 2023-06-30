@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Modificar Tarjeta</title>
+    <link rel="stylesheet" href="{% static 'css/Estilos.css' %}">
+</head>
+<style>
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    height: 300px;
+    margin:0 auto;
+    display: block;
+  }
+</style>
+<body>
+    <ul class="menu">
+        <!-- Datos de la cinta de opciones -->
+        <li><a href="/MenuAdmin">Volver</a></li>
+      </ul>
+<br>
+    <h1>Modificar Tarjeta</h1>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        <label for="numero">Numero de Tarjeta a Modificar:</label>
+        <input type="number" name = "numero" required>
+        <br>
+        <label for="nuevoTipo">Nuevo Tipo de Tarjeta</label>
+        <input type="text" name = "nuevoTipo" required>
+        <br>
+        <label for="nuevoNumero">Nuevo Número de Tarjeta</label>
+        <input type="number" name = "nuevosNumero" required>
+        <br>
+        <label for="nuevoTitular">Nuevo Titular de Tarjeta</label>
+        <input type="number" name = "nuevoTitular" required>
+        <br>
+        <label for="nuevaFecha">Nueva Fecha de Tarjeta</label>
+        <input type="number" name = "nuevaFecha" required>
+        <br>
+        <input type="submit" value="Modificar">
+    </form>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+</body>
+</html>

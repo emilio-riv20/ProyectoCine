@@ -20,6 +20,7 @@ from Cine.views import Menu, RegistrarUsuario, IniciarSesion, MenuCliente, Compr
 from Peliculas.views import RegistrarPeliculas, EliminarPeliculas, ModificarPeliculas, ListaPeliculas, Cargar_xmlP, ListaPeliculasMenu, ListaPeliculasMenuCliente
 from Administrador.views import  MenuAdmin, RegistrarUsuarios, EliminarUsuarios, ModificarUsuarios, Lista_Usuarios, Cargar_xml
 from Salas.views import RegistrarSalas, EliminarSalas, MostrarSalas, ModificarSalas, Cargar_xmlS
+from Tarjetas.views import AgregarTarjeta, EliminarTarjeta, MostrarTarjetas, ModificarTarjeta, Cargar_xmlT
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -44,6 +45,12 @@ urlpatterns = [
     path('MenuAdmin/ModificarUsuarios', ModificarUsuarios, name = 'ModificarUsuarios'),
     path('MenuAdmin/MostrarUsuarios', Lista_Usuarios, name = 'Lista_Usuarios'),
     path('MenuAdmin/Cargar_xml', Cargar_xml, name = 'Cargar_xml'),
+
+    path('MenuAdmin/AgregarTarjeta', AgregarTarjeta, name = 'AgregarTarjeta'),
+    path('MenuAdmin/EliminarTarjeta', EliminarTarjeta, name = 'EliminarTarjeta'),
+    path('MenuAdmin/MostrarTarjetas', MostrarTarjetas, name = 'MostrarTarjetas'),
+    path('MenuAdmin/ModificarTarjeta', ModificarTarjeta, name = 'ModificarTarjeta'),
+    path('MenuAdmin/Cargar_xmlT', Cargar_xmlT, name = 'Cargar_xmlT'),
 
     path('MenuAdmin/RegistrarSalas', RegistrarSalas, name = 'RegistrarSalas'),
     path('MenuAdmin/EliminarSalas', EliminarSalas, name = 'EliminarSalas'),
