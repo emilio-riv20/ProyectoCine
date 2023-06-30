@@ -108,6 +108,34 @@ def getSalas():
 
     except:
         return {"mensaje": "Error interno en el servidor", "status": 500} 
+    
+@app.route('/getTarjeta', methods=['GET'])
+def getTarjeta():
+    try:
+        if request.method == 'GET':
+            retorno = {
+                'tarjeta': [
+                {
+                    "tipo": "Debito",
+                    "numero": "7895615165463164",
+                    "titular": "Ricardo Rivera",
+                    "fecha": "2023-06-30"
+                },
+                {
+                    "tipo": "Credito",
+                    "numero": "748851321681321",
+                    "titular": "Mario Humberto",
+                    "fecha": "2023-06-30"
+                }
+                ]
+            }
+        else:
+            retorno = {'mensaje': 'Error en la petición, método incorrecto'}
+        return jsonify(retorno)
+
+    except:
+        return {"mensaje": "Error interno en el servidor", "status": 500} 
+    
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5007)
