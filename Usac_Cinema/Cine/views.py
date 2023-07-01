@@ -66,11 +66,11 @@ def Compra(request):
             if int (boletos) <= 0:
                 messages.error(request, 'La cantidad de Boletos debe ser mayor a 0')
             else:
-                if nit != 0:
+                if int (nit) != 0:
                     total = int (boletos) * 42
                     Boletos.AgregarCompra(id, boletos, sala, asientos, fecha, hora, nombre, nit, direccion, metodo, total)
                     messages.success(request, 'Boleto añadido')
-                elif nit == 0:
+                elif int (nit) == 0:
                     total = int (boletos) * 42
                     Boletos.AgregarCompra(id, boletos, sala, asientos, fecha, hora, nombre, nit, 'CF', metodo, total)
                     messages.success(request, 'Boleto añadido')
